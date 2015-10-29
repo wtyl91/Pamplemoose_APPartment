@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Add Apartment Info">
+        <menu>
+            <item android:id="@+id/nav_camara" android:icon="@drawable/ic_note_add"
+                android:title="Add Bill" />
+            <item android:id="@+id/nav_gallery" android:icon="@drawable/ic_face"
+                android:title="Add Roommate" />
+        </menu>
+    </item>
+
+    <item android:title="View History">
+        <menu>
+            <item android:id="@+id/nav_share" android:icon="@drawable/ic_receipt"
+                android:title="Bill Summary" />
+        </menu>
+    </item>
+
+</menu>
