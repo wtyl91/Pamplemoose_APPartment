@@ -5,8 +5,8 @@ android {
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        applicationId "net.brooke.apppartment2"
-        minSdkVersion 18
+        applicationId "awesome.pamplemoose.profiletext"
+        minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

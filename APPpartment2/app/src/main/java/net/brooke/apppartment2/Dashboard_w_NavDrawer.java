@@ -1,5 +1,6 @@
 package net.brooke.apppartment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -27,8 +28,8 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                    Intent ha = new Intent(Dashboard_w_NavDrawer.this, ProfileActivity.class);
+                    startActivity(ha);
             }
         });
 
