@@ -24,9 +24,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
-
     // for parse sdk
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.parse.bolts:bolts-android:1.2.0'
+    compile project(':ParseUI-Login')
+
+    compile 'com.facebook.android:facebook-android-sdk:4.2.0'
 }

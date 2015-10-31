@@ -19,5 +19,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name = "facebook_app_id">"1850239941869045"</string>
     <string name="title_activity_profile">ProfileActivity</string>
 </resources>
