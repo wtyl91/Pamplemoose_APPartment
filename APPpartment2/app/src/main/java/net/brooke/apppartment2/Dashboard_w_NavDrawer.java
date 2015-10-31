@@ -28,7 +28,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    Intent ha = new Intent(Dashboard_w_NavDrawer.this, ProfileActivity.class);
+                    Intent ha = new Intent(Dashboard_w_NavDrawer.this, MainActivity.class);
                     startActivity(ha);
             }
         });
