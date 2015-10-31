@@ -17,6 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /*Parse.enableLocalDatastore(this);
+
+        Parse.initialize(this, "f4P9dlTd7ZkYCpAy2SFCAPVfIq5KtkwDdDW2lk1c", "ucqXajPCK1zrVooXgFR5iDzOoJCQBZzmZiUs09jn");*/
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -30,15 +35,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        /*Parse.enableLocalDatastore(this);
-
-        Parse.initialize(this, "f4P9dlTd7ZkYCpAy2SFCAPVfIq5KtkwDdDW2lk1c", "ucqXajPCK1zrVooXgFR5iDzOoJCQBZzmZiUs09jn");
-
-
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();*/
 
 
     }
