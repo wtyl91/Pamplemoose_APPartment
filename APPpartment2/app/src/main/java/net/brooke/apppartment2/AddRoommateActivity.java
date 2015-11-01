@@ -1,5 +1,6 @@
 package net.brooke.apppartment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,8 +16,29 @@ public class AddRoommateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_roommate);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
+
+    /*
+     * User clicked Add New User. Email Address field can be accessed so
+     * an invite may be sent to user to download app
+     *
+     */
+
+    /*
+    protected void onClickInvite (View view){
+        Intent intent = new Intent(AddRoommateActivity.this, Invite.class);
+        startActivity(intent);
+    } */
+
+    /*
+     * User has designated that the roommate they are trying to add is an
+     * existing user and already has an account for APPartment
+     */
+
+    /*
+    protected void onClickExistingUser (View view) {
+        Intent intent = new Intent(AddRoommateActivity.this, AddExistingUser.class);
+        startActivity(intent);
+    }*/
 
 }

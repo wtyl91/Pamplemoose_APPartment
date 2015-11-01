@@ -11,14 +11,16 @@
     tools:showIn="@layout/activity_add_roommate"
     tools:context="net.brooke.apppartment2.AddRoommateActivity">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name"/>
+        android:layout_gravity="center"
+        android:text="Send Invite"/>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Last Name"/>
+        android:layout_gravity="center"
+        android:text="Add Existing User"/>
 
 </LinearLayout>
