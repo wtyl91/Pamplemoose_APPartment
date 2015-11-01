@@ -59,5 +59,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            Intent intent = new Intent(MainActivity.this, Dashboard_w_NavDrawer.class);
+            startActivity(intent);
+        }
     }
 }

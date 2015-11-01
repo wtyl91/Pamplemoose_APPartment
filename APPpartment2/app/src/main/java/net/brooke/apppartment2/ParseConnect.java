@@ -29,8 +29,5 @@ public class ParseConnect extends Application {
         testObject.put("foo", "bar");
         testObject.saveInBackground();
 
-
-
-
     }
 }
