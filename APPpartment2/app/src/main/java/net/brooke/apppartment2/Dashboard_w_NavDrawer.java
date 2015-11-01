@@ -24,14 +24,6 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    Intent ha = new Intent(Dashboard_w_NavDrawer.this, MainActivity.class);
-                    startActivity(ha);
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -81,11 +73,12 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.add_bill) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.add_roommate) {
+            Intent intent = new Intent(Dashboard_w_NavDrawer.this, AddRoommateActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.bill_summary) {
 
         }
 

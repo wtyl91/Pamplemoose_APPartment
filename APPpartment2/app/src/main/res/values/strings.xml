@@ -21,4 +21,5 @@
     </string>
     <string name = "facebook_app_id">"1850239941869045"</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_add_roommate">AddRoommateActivity</string>
 </resources>

@@ -3,16 +3,16 @@
 
     <item android:title="Add Apartment Info">
         <menu>
-            <item android:id="@+id/nav_camara" android:icon="@drawable/ic_note_add"
+            <item android:id="@+id/add_bill" android:icon="@drawable/ic_note_add"
                 android:title="Add Bill" />
-            <item android:id="@+id/nav_gallery" android:icon="@drawable/ic_face"
+            <item android:id="@+id/add_roommate" android:icon="@drawable/ic_face"
                 android:title="Add Roommate" />
         </menu>
     </item>
 
     <item android:title="View History">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@drawable/ic_receipt"
+            <item android:id="@+id/bill_summary" android:icon="@drawable/ic_receipt"
                 android:title="Bill Summary" />
         </menu>
     </item>
