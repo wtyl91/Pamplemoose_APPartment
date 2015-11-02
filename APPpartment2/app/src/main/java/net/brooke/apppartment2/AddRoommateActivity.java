@@ -18,6 +18,16 @@ public class AddRoommateActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    public void addExistingUser(View v) {
+        Intent intent = new Intent(AddRoommateActivity.this, AddExistingUserActivity.class);
+        startActivity(intent);
+    }
+
+    public void sendInvite(View v) {
+        Intent intent = new Intent(AddRoommateActivity.this, SendInviteActivity.class);
+        startActivity(intent);
+    }
+
     /*
      * User clicked Add New User. Email Address field can be accessed so
      * an invite may be sent to user to download app

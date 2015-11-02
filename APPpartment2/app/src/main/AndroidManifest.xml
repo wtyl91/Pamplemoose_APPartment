@@ -77,6 +77,10 @@
             android:label="@string/title_activity_add_roommate"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity android:name=".AddExistingUserActivity" >
+        </activity>
+        <activity android:name=".SendInviteActivity" >
+        </activity>
     </application>
 
 </manifest>

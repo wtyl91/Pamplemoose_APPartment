@@ -15,12 +15,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Send Invite"/>
+        android:text="Send Invite"
+        android:onClick="sendInvite"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Add Existing User"/>
+        android:text="Add Existing User"
+        android:onClick="addExistingUser"/>
 
 </LinearLayout>
