@@ -40,7 +40,7 @@
         android:id="@+id/button4"
         android:layout_below="@+id/textView6"
         android:layout_alignParentStart="true"
-        android:onClick="enterApartment"/>
+        android:onClick="createApartment"/>
 
     <TextView
         android:layout_width="wrap_content"

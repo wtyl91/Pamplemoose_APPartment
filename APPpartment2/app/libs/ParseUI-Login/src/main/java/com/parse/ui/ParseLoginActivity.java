@@ -168,6 +168,7 @@ public class ParseLoginActivity extends FragmentActivity implements
     finish();
   }
 
+
   /**
    * Called when we are in progress retrieving some data.
    *
