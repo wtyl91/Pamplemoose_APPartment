@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.ParseUser;
 
 public class SendInviteActivity extends AppCompatActivity {
 
@@ -25,5 +28,12 @@ public class SendInviteActivity extends AppCompatActivity {
 
         Intent intent = new Intent(SendInviteActivity.this, Dashboard_w_NavDrawer.class);
         startActivity(intent);
+    }
+
+    public void retrieveCode(View v){
+        TextView tvCode = (TextView)findViewById(R.id.textView9);
+        ParseUser user = ParseUser.getCurrentUser();
+        String household = user.getString("household");
+        tvCode.setText(household);
     }
 }

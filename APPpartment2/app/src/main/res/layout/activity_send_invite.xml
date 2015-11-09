@@ -28,4 +28,20 @@
         android:id="@+id/button2"
         android:layout_gravity="center_horizontal"
         android:onClick="dashboard"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Appartment Code Here"
+        android:id="@+id/textView9"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrieve"
+        android:id="@+id/button5"
+        android:layout_gravity="center_horizontal"
+        android:onClick="retrieveCode"/>
+
 </LinearLayout>
