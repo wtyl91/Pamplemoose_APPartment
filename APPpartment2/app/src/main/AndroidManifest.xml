@@ -72,6 +72,8 @@
         </activity>
         <activity android:name=".SendInviteActivity" >
         </activity>
+        <activity android:name=".EnterApartmentActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -22,6 +22,7 @@
 package com.parse.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
@@ -229,7 +230,7 @@ public class ParseSignupFragment extends ParseLoginFragmentBase implements OnCli
     return LOG_TAG;
   }
 
-  private void signupSuccess() {
-    onLoginSuccessListener.onLoginSuccess();
+  public void signupSuccess() {
+    /* NEED AN INTENT TO GO TO ENTER APARTMENT ACTIVITY PAGE */
   }
 }
