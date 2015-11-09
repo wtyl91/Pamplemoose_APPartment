@@ -71,7 +71,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     }
 
                     if (size > 4) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person4);
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person5);
                         myTextView5.setText(inhabitants.get(4));
                     }
                 }
