@@ -231,6 +231,6 @@ public class ParseSignupFragment extends ParseLoginFragmentBase implements OnCli
   }
 
   public void signupSuccess() {
-    /* NEED AN INTENT TO GO TO ENTER APARTMENT ACTIVITY PAGE */
+    onLoginSuccessListener.onLoginSuccess();
   }
 }
