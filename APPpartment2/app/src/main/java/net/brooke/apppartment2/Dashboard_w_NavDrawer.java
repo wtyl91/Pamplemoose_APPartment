@@ -13,12 +13,72 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.parse.GetCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+
 
 public class Dashboard_w_NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Retrieves the current user's apartment code string
+        ParseUser user = ParseUser.getCurrentUser();
+        String aptCode = user.getString("household");
+
+        // Retrieves the household associated with the current user's apartment
+        ParseQuery<ParseObject> household = ParseQuery.getQuery("Household");
+        household.whereEqualTo("houseID", aptCode);
+
+        household.getFirstInBackground(new GetCallback<ParseObject>() {
+            public void done(ParseObject object, ParseException e) {
+                if (object == null) {
+                    System.out.println("Error: Could not find apartment.");
+                } else {
+                    // Gets the inhabitants array from Household object
+                    ArrayList<String> inhabitants;
+                    inhabitants = (ArrayList<String>) object.get("inhabitants");
+
+                    int size = inhabitants.size();
+
+                    // Prints out inhabitants to the TextViews
+                    if (size > 0) {
+                        TextView myTextView1 = (TextView) findViewById(R.id.Person1);
+                        myTextView1.setText(inhabitants.get(0));
+                    }
+
+                    if (size > 1) {
+                        TextView myTextView2 = (TextView) findViewById(R.id.Person2);
+                        myTextView2.setText(inhabitants.get(1));
+                    }
+
+                    if (size > 2) {
+                        TextView myTextView3 = (TextView) findViewById(R.id.Person3);
+                        myTextView3.setText(inhabitants.get(2));
+                    }
+
+                    if (size > 3) {
+                        TextView myTextView4 = (TextView) findViewById(R.id.Person4);
+                        myTextView4.setText(inhabitants.get(3));
+                    }
+
+                    if (size > 4) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person4);
+                        myTextView5.setText(inhabitants.get(4));
+                    }
+                }
+            }
+        });
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_w__nav_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -33,6 +93,8 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override

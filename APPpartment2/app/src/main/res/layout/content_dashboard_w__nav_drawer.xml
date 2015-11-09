@@ -10,21 +10,30 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_dashboard_w__nav_drawer" tools:context=".Dashboard_w_NavDrawer">
 
-    <TextView android:text="Person1" android:layout_width="wrap_content"
+    <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="36dp" />
-    <TextView android:text="Person2" android:layout_width="wrap_content"
+        android:id="@+id/Person1"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="36dp" />
-    <TextView android:text="Person3" android:layout_width="wrap_content"
+        android:id="@+id/Person2"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="36dp" />
-    <TextView android:text="Person4" android:layout_width="wrap_content"
+        android:id="@+id/Person3"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="36dp" />
+        android:id="@+id/Person4"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person5"
+        android:textSize="18dp" />
 
 </LinearLayout>
