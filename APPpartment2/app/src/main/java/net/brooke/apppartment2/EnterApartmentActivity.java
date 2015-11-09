@@ -11,6 +11,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class EnterApartmentActivity extends AppCompatActivity {
 
@@ -21,7 +22,37 @@ public class EnterApartmentActivity extends AppCompatActivity {
     }
 
     public void createApartment(View v) {
-        // gonna need this: object.put("houseID", code);
+        final ParseObject newApartment = new ParseObject("Household");
+
+
+
+        newApartment.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                ParseUser user = ParseUser.getCurrentUser();
+                String id = newApartment.getObjectId();
+                System.out.println("Successfully created a new apt!, your apt # is : " + id);
+                newApartment.put("houseID", id);
+                newApartment.add("inhabitants", user.getUsername());
+                user.put("household", id);
+                user.saveInBackground();
+                newApartment.saveInBackground();
+
+            }
+        });
+
+        //String id = newApartment.getObjectId();
+
+
+        //newApartment.put("houseID", id);
+        //newApartment.add("inhabitants", user.getUsername());
+        //user.put("household", id);
+        //user.saveInBackground();
+
+        //System.out.println("Successfully created a new apt!, your apt # is : " + id);
+
+        Intent intent = new Intent(EnterApartmentActivity.this, Dashboard_w_NavDrawer.class);
+        startActivity(intent);
     }
 
     public void enterApartment(View v) {
