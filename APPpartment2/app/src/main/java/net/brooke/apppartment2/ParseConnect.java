@@ -22,8 +22,6 @@ public class ParseConnect extends Application {
 
         ParseFacebookUtils.initialize(this);
 
-
-
         // test connection
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
