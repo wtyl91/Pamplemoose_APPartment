@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -44,10 +45,15 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     System.out.println("Error: Could not find apartment.");
                 } else {
                     // Gets the inhabitants array from Household object
-                    ArrayList<String> inhabitants;
-                    inhabitants = (ArrayList<String>) object.get("inhabitants");
+                    ArrayList<String> inhabitants= (ArrayList<String>) object.get("inhabitants");
+                    ParseQuery<ParseObject> users = ParseQuery.getQuery("User");
 
                     int size = inhabitants.size();
+                    ParseQuery<ParseObject> username;
+
+                    // TODO: I have no idea how to get the string version of username
+                    // Anyone know?
+                    username = users.whereEqualTo("username", inhabitants.get(0));
 
                     // Prints out inhabitants to the TextViews
                     if (size > 0) {
@@ -74,10 +80,34 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                         TextView myTextView5 = (TextView) findViewById(R.id.Person5);
                         myTextView5.setText(inhabitants.get(4));
                     }
+
+                    if (size > 5) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person6);
+                        myTextView5.setText(inhabitants.get(5));
+                    }
+
+                    if (size > 6) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person7);
+                        myTextView5.setText(inhabitants.get(6));
+                    }
+
+                    if (size > 7) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person8);
+                        myTextView5.setText(inhabitants.get(7));
+                    }
+
+                    if (size > 8) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person9);
+                        myTextView5.setText(inhabitants.get(8));
+                    }
+
+                    if (size > 9) {
+                        TextView myTextView5 = (TextView) findViewById(R.id.Person10);
+                        myTextView5.setText(inhabitants.get(9));
+                    }
                 }
             }
         });
-
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_w__nav_drawer);
@@ -93,7 +123,6 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
     }
 
