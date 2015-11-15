@@ -35,5 +35,31 @@
         android:layout_gravity="center"
         android:id="@+id/Person5"
         android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person6"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person7"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person8"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person9"
+        android:textSize="18dp" />
+    <TextView android:text="" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/Person10"
+        android:textSize="18dp" />
+
 
 </LinearLayout>
