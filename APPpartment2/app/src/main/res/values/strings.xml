@@ -23,4 +23,5 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_add_roommate">AddRoommateActivity</string>
     <string name="title_activity_household_choice">HouseholdChoiceActivity</string>
+    <string name="title_activity_add_bill">AddBillActivity</string>
 </resources>
