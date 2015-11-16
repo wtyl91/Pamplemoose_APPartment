@@ -10,72 +10,11 @@
     tools:showIn="@layout/activity_select_roomates"
     tools:context="net.brooke.apppartment2.SelectRoomatesActivity">
 
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person1"
-        android:textSize="18dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person2"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person1"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person3"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person2"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person4"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person3"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person5"
-        android:textSize="18dp"
-        android:layout_alignTop="@+id/Person4"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person6"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person5"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person7"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person6"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person8"
-        android:textSize="18dp"
-        android:layout_below="@+id/Person7"
-        android:layout_alignParentStart="true" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person9"
-        android:textSize="18dp" />
-    <TextView android:text="" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:id="@+id/Person10"
-        android:textSize="18dp" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <Button
         android:layout_width="wrap_content"

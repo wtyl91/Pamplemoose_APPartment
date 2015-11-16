@@ -8,13 +8,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelectRoomatesActivity extends AppCompatActivity {
@@ -26,6 +31,27 @@ public class SelectRoomatesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ParseQuery<ParseObject> apartmentsQuery = ParseQuery.getQuery("Household");
+        apartmentsQuery.whereEqualTo("houseID", ParseUser.getCurrentUser().getString("household"));
+
+        apartmentsQuery.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> apartments, ParseException e) {
+                if (e == null) {
+                    ArrayList<String> inhabitants = (ArrayList) apartments.get(0).getList("inhabitants");
+
+                    ListView listView = (ListView) findViewById(R.id.list);
+
+                    listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
+                            android.R.layout.simple_list_item_multiple_choice,
+                            inhabitants));
+                } else {
+                    Log.d("apartments", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+        /*
         ParseUser user = ParseUser.getCurrentUser();
         String aptCode = user.getString("household");
 
@@ -39,53 +65,53 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                     int size = liverList.size();
 
                     if (size > 0) {
-                        TextView myTextView1 = (TextView) findViewById(R.id.Person1);
-                        myTextView1.setText(liverList.get(0).getString("name"));
+                        CheckBox myCheckBox1 = (CheckBox) findViewById(R.id.checkBox1);
+                        myCheckBox1.setText(liverList.get(0).getString("name"));
                     }
 
                     if (size > 1) {
-                        TextView myTextView2 = (TextView) findViewById(R.id.Person2);
-                        myTextView2.setText(liverList.get(1).getString("name"));
+                        CheckBox myCheckBox2 = (CheckBox) findViewById(R.id.checkBox2);
+                        myCheckBox2.setText(liverList.get(1).getString("name"));
                     }
 
                     if (size > 2) {
-                        TextView myTextView3 = (TextView) findViewById(R.id.Person3);
-                        myTextView3.setText(liverList.get(2).getString("name"));
+                        CheckBox myCheckBox3 = (CheckBox) findViewById(R.id.checkBox3);
+                        myCheckBox3.setText(liverList.get(2).getString("name"));
                     }
 
                     if (size > 3) {
-                        TextView myTextView4 = (TextView) findViewById(R.id.Person4);
-                        myTextView4.setText(liverList.get(3).getString("name"));
+                        CheckBox myCheckBox4 = (CheckBox) findViewById(R.id.checkBox4);
+                        myCheckBox4.setText(liverList.get(3).getString("name"));
                     }
 
                     if (size > 4) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person5);
-                        myTextView5.setText(liverList.get(4).getString("name"));
+                        CheckBox myCheckBox5 = (CheckBox) findViewById(R.id.checkBox5);
+                        myCheckBox5.setText(liverList.get(4).getString("name"));
                     }
 
                     if (size > 5) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person6);
-                        myTextView5.setText(liverList.get(5).getString("name"));
+                        CheckBox myCheckBox6 = (CheckBox) findViewById(R.id.checkBox6);
+                        myCheckBox6.setText(liverList.get(5).getString("name"));
                     }
 
                     if (size > 6) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person7);
-                        myTextView5.setText(liverList.get(6).getString("name"));
+                        CheckBox myCheckBox7 = (CheckBox) findViewById(R.id.checkBox7);
+                        myCheckBox7.setText(liverList.get(6).getString("name"));
                     }
 
                     if (size > 7) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person8);
-                        myTextView5.setText(liverList.get(7).getString("name"));
+                        CheckBox myCheckBox8 = (CheckBox) findViewById(R.id.checkBox8);
+                        myCheckBox8.setText(liverList.get(7).getString("name"));
                     }
 
                     if (size > 8) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person9);
-                        myTextView5.setText(liverList.get(8).getString("name"));
+                        CheckBox myCheckBox9 = (CheckBox) findViewById(R.id.checkBox9);
+                        myCheckBox9.setText(liverList.get(8).getString("name"));
                     }
 
                     if (size > 9) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person10);
-                        myTextView5.setText(liverList.get(9).getString("name"));
+                        CheckBox myCheckBox10 = (CheckBox) findViewById(R.id.checkBox10);
+                        myCheckBox10.setText(liverList.get(9).getString("name"));
                     }
 
 
@@ -93,7 +119,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                     Log.d("roommates", "Error: " + e.getMessage());
                 }
             }
-        });
+        }); */
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_roomates);

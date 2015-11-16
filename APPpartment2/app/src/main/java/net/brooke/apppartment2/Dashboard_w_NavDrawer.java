@@ -37,13 +37,13 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Retrieves the current user's apartment code string
-
+/*
         try {
             updateTotalAmount();
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
+*/
         ParseUser user = ParseUser.getCurrentUser();
         final String aptCode = user.getString("household");
 
