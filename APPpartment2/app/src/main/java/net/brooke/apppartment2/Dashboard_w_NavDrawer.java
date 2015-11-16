@@ -32,32 +32,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    private void getAndDisplayNameSum(String aptCode, final ParseObject liver, final int liverNum, final TextView view){
 
-        ParseQuery<ParseObject> billAmountQuery = ParseQuery.getQuery("Bills");
-        billAmountQuery.whereEqualTo("Household", aptCode);
-
-        billAmountQuery.findInBackground(new FindCallback<ParseObject>(){
-            public void done(List<ParseObject> billList, ParseException e){
-                if(e==null) {
-                    String oweCol = "inhabitant"+Integer.toString(liverNum);
-                    Log.d("inhabitantQ", oweCol);
-                    int sum = 0;
-
-                    for(int i = 0; i < billList.size(); i++){
-
-                        sum+=(int)billList.get(i).getNumber(oweCol);
-
-                    }
-
-
-                    view.setText(liver.getString("name")+" " +sum);
-
-                }
-            }
-        });
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -238,4 +213,31 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void getAndDisplayNameSum(String aptCode, final ParseObject liver, final int liverNum, final TextView view){
+
+        ParseQuery<ParseObject> billAmountQuery = ParseQuery.getQuery("Bills");
+        billAmountQuery.whereEqualTo("Household", aptCode);
+
+        billAmountQuery.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> billList, ParseException e) {
+                if (e == null) {
+                    String oweCol = "inhabitant" + Integer.toString(liverNum);
+                    Log.d("inhabitantQ", oweCol);
+                    int sum = 0;
+
+                    for (int i = 0; i < billList.size(); i++) {
+
+                        sum += (int) billList.get(i).getNumber(oweCol);
+
+                    }
+
+
+                    view.setText(liver.getString("name") + " " + sum);
+
+                }
+            }
+        });
+
+    }
+
 }
