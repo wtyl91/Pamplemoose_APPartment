@@ -35,8 +35,17 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         // Retrieves the current user's apartment code string
 
+        try {
+            updateTotalAmount();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         ParseUser user = ParseUser.getCurrentUser();
         String aptCode = user.getString("household");
+
+        //System.out.println(aptCode);
+
 
         ParseQuery<ParseUser> usersQuery = ParseUser.getQuery();
         usersQuery.whereEqualTo("household", aptCode);
@@ -50,6 +59,8 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 0) {
                         TextView myTextView1 = (TextView) findViewById(R.id.Person1);
                         myTextView1.setText(liverList.get(0).getString("name"));
+
+
 
                         TextView myBillView1 = (TextView) findViewById(R.id.Bill1);
                         myBillView1.setText(liverList.get(0).get("totalAmount").toString());
@@ -206,4 +217,76 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void updateTotalAmount() throws ParseException {
+
+
+
+        ParseQuery<ParseObject> bills = ParseQuery.getQuery("Bills");
+        bills.whereEqualTo("Household", ParseUser.getCurrentUser().getString("household"));
+        //System.out.println(ParseUser.getCurrentUser().getString("household"));
+
+        //final Integer totalAmount;
+
+        final ParseQuery<ParseUser> users = ParseQuery.getQuery("User");
+        users.whereEqualTo("household", ParseUser.getCurrentUser().getString("household"));
+        users.whereEqualTo("liverNum", 1);
+
+
+        final ParseObject correctUser = users.getFirst();
+
+
+        bills.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> column, ParseException e) {
+                // check for ParseException
+                String inhabitant = "inhabitant1";
+                Integer sum = 0;
+                for (final ParseObject billValue : column) {
+                    sum += (Integer) billValue.get(inhabitant);
+                    //System.out.println(sum);
+                }
+                // there is your SUM
+                System.out.println("Total: " + sum);
+                Integer totalAmount = sum;
+                String liverNum = inhabitant.replace("inhabitant", "");
+                final Integer liverInt = Integer.parseInt(liverNum);
+
+                //users.whereEqualTo("liverNum", liverInt);
+
+                //try {
+                    //ParseObject correctUser = users.getFirst();
+                    correctUser.put("totalAmount", totalAmount);
+                    correctUser.saveInBackground();
+               // } catch (ParseException e1) {
+                 //   e1.printStackTrace();
+               // }
+            }
+
+
+
+
+
+
+
+
+
+
+
+                /*
+                users.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        System.out.println(totalAmount);
+                        ParseObject object = objects.get(0);
+                        object.put("totalAmount", totalAmount);
+                        object.saveInBackground();
+                    }
+                }); */
+            });
+        } //);
+
+    //}
+
 }
+
+
