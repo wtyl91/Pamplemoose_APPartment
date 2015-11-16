@@ -31,12 +31,40 @@ import java.util.List;
 public class Dashboard_w_NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    private void getAndDisplayNameSum(String aptCode, final ParseObject liver, final int liverNum, final TextView view){
+
+        ParseQuery<ParseObject> billAmountQuery = ParseQuery.getQuery("Bills");
+        billAmountQuery.whereEqualTo("Household", aptCode);
+
+        billAmountQuery.findInBackground(new FindCallback<ParseObject>(){
+            public void done(List<ParseObject> billList, ParseException e){
+                if(e==null) {
+                    String oweCol = "inhabitant"+Integer.toString(liverNum);
+                    Log.d("inhabitantQ", oweCol);
+                    int sum = 0;
+
+                    for(int i = 0; i < billList.size(); i++){
+
+                        sum+=(int)billList.get(i).getNumber(oweCol);
+
+                    }
+
+
+                    view.setText(liver.getString("name")+" " +sum);
+
+                }
+            }
+        });
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Retrieves the current user's apartment code string
 
         ParseUser user = ParseUser.getCurrentUser();
-        String aptCode = user.getString("household");
+        final String aptCode = user.getString("household");
 
         ParseQuery<ParseUser> usersQuery = ParseUser.getQuery();
         usersQuery.whereEqualTo("household", aptCode);
@@ -48,84 +76,88 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     int size = liverList.size();
 
                     if (size > 0) {
+                        ParseObject liver = liverList.get(0);
+                        int tagNum = (int)liver.getNumber("liverNum");
                         TextView myTextView1 = (TextView) findViewById(R.id.Person1);
-                        myTextView1.setText(liverList.get(0).getString("name"));
 
-                        TextView myBillView1 = (TextView) findViewById(R.id.Bill1);
-                        myBillView1.setText(liverList.get(0).get("totalAmount").toString());
-
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView1);
                     }
 
                     if (size > 1) {
-                        TextView myTextView2 = (TextView) findViewById(R.id.Person2);
-                        myTextView2.setText(liverList.get(1).getString("name"));
+                        ParseObject liver = liverList.get(1);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person2);
 
-                        TextView myBillView2 = (TextView) findViewById(R.id.Bill2);
-                        myBillView2.setText(liverList.get(1).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
                     }
 
                     if (size > 2) {
-                        TextView myTextView3 = (TextView) findViewById(R.id.Person3);
-                        myTextView3.setText(liverList.get(2).getString("name"));
+                        ParseObject liver = liverList.get(2);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person3);
 
-                        TextView myBillView3 = (TextView) findViewById(R.id.Bill3);
-                        myBillView3.setText(liverList.get(2).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
+
                     }
 
                     if (size > 3) {
-                        TextView myTextView4 = (TextView) findViewById(R.id.Person4);
-                        myTextView4.setText(liverList.get(3).getString("name"));
+                        ParseObject liver = liverList.get(3);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person4);
 
-                        TextView myBillView4 = (TextView) findViewById(R.id.Bill4);
-                        myBillView4.setText(liverList.get(3).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
                     }
 
                     if (size > 4) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person5);
-                        myTextView5.setText(liverList.get(4).getString("name"));
+                        ParseObject liver = liverList.get(4);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person5);
 
-                        TextView myBillView5 = (TextView) findViewById(R.id.Bill5);
-                        myBillView5.setText(liverList.get(4).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
                     }
 
                     if (size > 5) {
-                        TextView myTextView6 = (TextView) findViewById(R.id.Person6);
-                        myTextView6.setText(liverList.get(5).getString("name"));
+                        ParseObject liver = liverList.get(5);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person6);
 
-                        TextView myBillView6 = (TextView) findViewById(R.id.Bill6);
-                        myBillView6.setText(liverList.get(5).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
                     }
 
                     if (size > 6) {
-                        TextView myTextView7 = (TextView) findViewById(R.id.Person7);
-                        myTextView7.setText(liverList.get(6).getString("name"));
+                        ParseObject liver = liverList.get(6);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person6);
 
-                        TextView myBillView7 = (TextView) findViewById(R.id.Bill7);
-                        myBillView7.setText(liverList.get(6).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
+
                     }
 
                     if (size > 7) {
-                        TextView myTextView8 = (TextView) findViewById(R.id.Person8);
-                        myTextView8.setText(liverList.get(7).getString("name"));
+                        ParseObject liver = liverList.get(7);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person6);
 
-                        TextView myBillView8 = (TextView) findViewById(R.id.Bill8);
-                        myBillView8.setText(liverList.get(7).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
+
                     }
 
                     if (size > 8) {
-                        TextView myTextView9 = (TextView) findViewById(R.id.Person9);
-                        myTextView9.setText(liverList.get(8).getString("name"));
+                        ParseObject liver = liverList.get(8);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person6);
 
-                        TextView myBillView9 = (TextView) findViewById(R.id.Bill9);
-                        myBillView9.setText(liverList.get(8).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
+
                     }
 
                     if (size > 9) {
-                        TextView myTextView10 = (TextView) findViewById(R.id.Person10);
-                        myTextView10.setText(liverList.get(9).getString("name"));
+                        ParseObject liver = liverList.get(9);
+                        int tagNum = (int)liver.getNumber("liverNum");
+                        TextView myTextView = (TextView) findViewById(R.id.Person6);
 
-                        TextView myBillView10 = (TextView) findViewById(R.id.Bill10);
-                        myBillView10.setText(liverList.get(9).get("totalAmount").toString());
+                        getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
+
                     }
 
 
