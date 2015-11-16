@@ -50,51 +50,82 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 0) {
                         TextView myTextView1 = (TextView) findViewById(R.id.Person1);
                         myTextView1.setText(liverList.get(0).getString("name"));
+
+                        TextView myBillView1 = (TextView) findViewById(R.id.Bill1);
+                        myBillView1.setText(liverList.get(0).get("totalAmount").toString());
+
                     }
 
                     if (size > 1) {
                         TextView myTextView2 = (TextView) findViewById(R.id.Person2);
                         myTextView2.setText(liverList.get(1).getString("name"));
+
+                        TextView myBillView2 = (TextView) findViewById(R.id.Bill2);
+                        myBillView2.setText(liverList.get(1).get("totalAmount").toString());
                     }
 
                     if (size > 2) {
                         TextView myTextView3 = (TextView) findViewById(R.id.Person3);
                         myTextView3.setText(liverList.get(2).getString("name"));
+
+                        TextView myBillView3 = (TextView) findViewById(R.id.Bill3);
+                        myBillView3.setText(liverList.get(2).get("totalAmount").toString());
                     }
 
                     if (size > 3) {
                         TextView myTextView4 = (TextView) findViewById(R.id.Person4);
                         myTextView4.setText(liverList.get(3).getString("name"));
+
+                        TextView myBillView4 = (TextView) findViewById(R.id.Bill4);
+                        myBillView4.setText(liverList.get(3).get("totalAmount").toString());
                     }
 
                     if (size > 4) {
                         TextView myTextView5 = (TextView) findViewById(R.id.Person5);
                         myTextView5.setText(liverList.get(4).getString("name"));
+
+                        TextView myBillView5 = (TextView) findViewById(R.id.Bill5);
+                        myBillView5.setText(liverList.get(4).get("totalAmount").toString());
                     }
 
                     if (size > 5) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person6);
-                        myTextView5.setText(liverList.get(5).getString("name"));
+                        TextView myTextView6 = (TextView) findViewById(R.id.Person6);
+                        myTextView6.setText(liverList.get(5).getString("name"));
+
+                        TextView myBillView6 = (TextView) findViewById(R.id.Bill6);
+                        myBillView6.setText(liverList.get(5).get("totalAmount").toString());
                     }
 
                     if (size > 6) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person7);
-                        myTextView5.setText(liverList.get(6).getString("name"));
+                        TextView myTextView7 = (TextView) findViewById(R.id.Person7);
+                        myTextView7.setText(liverList.get(6).getString("name"));
+
+                        TextView myBillView7 = (TextView) findViewById(R.id.Bill7);
+                        myBillView7.setText(liverList.get(6).get("totalAmount").toString());
                     }
 
                     if (size > 7) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person8);
-                        myTextView5.setText(liverList.get(7).getString("name"));
+                        TextView myTextView8 = (TextView) findViewById(R.id.Person8);
+                        myTextView8.setText(liverList.get(7).getString("name"));
+
+                        TextView myBillView8 = (TextView) findViewById(R.id.Bill8);
+                        myBillView8.setText(liverList.get(7).get("totalAmount").toString());
                     }
 
                     if (size > 8) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person9);
-                        myTextView5.setText(liverList.get(8).getString("name"));
+                        TextView myTextView9 = (TextView) findViewById(R.id.Person9);
+                        myTextView9.setText(liverList.get(8).getString("name"));
+
+                        TextView myBillView9 = (TextView) findViewById(R.id.Bill9);
+                        myBillView9.setText(liverList.get(8).get("totalAmount").toString());
                     }
 
                     if (size > 9) {
-                        TextView myTextView5 = (TextView) findViewById(R.id.Person10);
-                        myTextView5.setText(liverList.get(9).getString("name"));
+                        TextView myTextView10 = (TextView) findViewById(R.id.Person10);
+                        myTextView10.setText(liverList.get(9).getString("name"));
+
+                        TextView myBillView10 = (TextView) findViewById(R.id.Bill10);
+                        myBillView10.setText(liverList.get(9).get("totalAmount").toString());
                     }
 
 
