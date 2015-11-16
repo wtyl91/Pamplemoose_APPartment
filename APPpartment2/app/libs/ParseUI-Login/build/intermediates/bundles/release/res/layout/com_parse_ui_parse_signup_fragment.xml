@@ -21,4 +21,8 @@
         android:layout_weight="0.5" />
 
 </LinearLayout>
-<!-- From: file:/Users/seanwenzel/Github/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/layout/com_parse_ui_parse_signup_fragment.xml -->
+<<<<<<< HEAD
+<!-- From: file:/C:/Users/Tom/Documents/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/layout/com_parse_ui_parse_signup_fragment.xml -->
+=======
+<!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/layout/com_parse_ui_parse_signup_fragment.xml -->
+>>>>>>> origin/master
