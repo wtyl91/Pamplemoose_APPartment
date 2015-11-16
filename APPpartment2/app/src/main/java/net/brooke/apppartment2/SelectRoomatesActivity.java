@@ -1,5 +1,6 @@
 package net.brooke.apppartment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +18,11 @@ import com.parse.ParseUser;
 import java.util.List;
 
 public class SelectRoomatesActivity extends AppCompatActivity {
+
+    public void onClickToEven(View v) {
+        Intent intent = new Intent(SelectRoomatesActivity.this, AddBillEvenlyActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +99,8 @@ public class SelectRoomatesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_select_roomates);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
     }
 
 }
