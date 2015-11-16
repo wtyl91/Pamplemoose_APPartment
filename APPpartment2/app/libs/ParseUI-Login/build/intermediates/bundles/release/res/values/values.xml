@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/Tom/Documents/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/colors.xml -->
+=======
+    <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/colors.xml -->
+>>>>>>> origin/master
 =======
     <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/colors.xml -->
 >>>>>>> origin/master
@@ -21,7 +25,11 @@
     <color name="com_parse_ui_twitter_login_button_focus">#2788BE</color>
     <color name="com_parse_ui_twitter_login_button_push">#2588B5</color>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/Tom/Documents/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/dimens.xml -->
+=======
+    <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/dimens.xml -->
+>>>>>>> origin/master
 =======
     <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/dimens.xml -->
 >>>>>>> origin/master
@@ -34,7 +42,11 @@
     <dimen name="com_parse_ui_vertical_spacing">16dp</dimen>
     <dimen name="com_parse_ui_xlarge_vertical_spacing">36dp</dimen>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/Tom/Documents/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/strings.xml -->
+=======
+    <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/strings.xml -->
+>>>>>>> origin/master
 =======
     <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/strings.xml -->
 >>>>>>> origin/master
@@ -94,7 +106,11 @@
     <string name="com_parse_ui_username_input_hint">Username</string>
     <string name="com_parse_ui_username_taken_toast">Username is already taken, please choose a different one</string>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- From: file:/C:/Users/Tom/Documents/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/styles.xml -->
+=======
+    <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/styles.xml -->
+>>>>>>> origin/master
 =======
     <!-- From: file:/C:/Users/mandy_000/Documents/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/res/values/styles.xml -->
 >>>>>>> origin/master
