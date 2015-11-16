@@ -79,6 +79,21 @@
             android:label="@string/title_activity_add_bill"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".AddBillEvenlyActivity"
+            android:label="@string/title_activity_add_bill_evenly"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".AddBillCustomActivity"
+            android:label="@string/title_activity_add_bill_custom"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".SelectRoomatesActivity"
+            android:label="@string/title_activity_select_roomates"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

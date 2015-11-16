@@ -24,4 +24,7 @@
     <string name="title_activity_add_roommate">AddRoommateActivity</string>
     <string name="title_activity_household_choice">HouseholdChoiceActivity</string>
     <string name="title_activity_add_bill">AddBillActivity</string>
+    <string name="title_activity_add_bill_evenly">add_bill_evenly</string>
+    <string name="title_activity_add_bill_custom">add_bill_custom</string>
+    <string name="title_activity_select_roomates">SelectRoomates</string>
 </resources>
