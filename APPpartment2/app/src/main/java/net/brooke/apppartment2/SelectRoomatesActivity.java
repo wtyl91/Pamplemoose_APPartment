@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
@@ -41,6 +42,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                     ArrayList<String> inhabitants = (ArrayList) apartments.get(0).getList("inhabitants");
 
                     ListView listView = (ListView) findViewById(R.id.list);
+                    listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
                     listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
                             android.R.layout.simple_list_item_multiple_choice,
