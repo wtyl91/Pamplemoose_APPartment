@@ -51,11 +51,13 @@ public class EnterApartmentActivity extends AppCompatActivity {
                 user.saveInBackground();
                 newApartment.saveInBackground();
 
+                Intent intent = new Intent(EnterApartmentActivity.this, Dashboard_w_NavDrawer.class);
+                startActivity(intent);
+
             }
         });
 
-        Intent intent = new Intent(EnterApartmentActivity.this, Dashboard_w_NavDrawer.class);
-        startActivity(intent);
+
     }
 
     public void enterApartment(View v) {
