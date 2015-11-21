@@ -32,103 +32,36 @@ public class SelectRoomatesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String aptCode = ParseUser.getCurrentUser().getString("household");
 
-        ParseQuery<ParseObject> apartmentsQuery = ParseQuery.getQuery("Household");
-        apartmentsQuery.whereEqualTo("houseID", ParseUser.getCurrentUser().getString("household"));
+        ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
+        userQuery.whereEqualTo("household", aptCode);
 
-        apartmentsQuery.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> apartments, ParseException e) {
+        userQuery.findInBackground(new FindCallback<ParseUser>() {
+            public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
-                    ArrayList<String> inhabitants = (ArrayList) apartments.get(0).getList("inhabitants");
+
+                    ArrayList<String> names = new ArrayList<String>();
+
+                    for (int i = 0; i < users.size(); i++) {
+                        ParseUser user = users.get(i);
+
+                        String name = user.getString("name");
+                        names.add(name);
+                    }
 
                     ListView listView = (ListView) findViewById(R.id.list);
                     listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
                     listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
                             android.R.layout.simple_list_item_multiple_choice,
-                            inhabitants));
-                } else {
-                    Log.d("apartments", "Error: " + e.getMessage());
+                            names));
                 }
             }
         });
-
-        /*
-        ParseUser user = ParseUser.getCurrentUser();
-        String aptCode = user.getString("household");
-
-        ParseQuery<ParseUser> usersQuery = ParseUser.getQuery();
-        usersQuery.whereEqualTo("household", aptCode);
-
-        usersQuery.findInBackground(new FindCallback<ParseUser>() {
-            public void done(List<ParseUser> liverList, ParseException e) {
-                if (e == null) {
-
-                    int size = liverList.size();
-
-                    if (size > 0) {
-                        CheckBox myCheckBox1 = (CheckBox) findViewById(R.id.checkBox1);
-                        myCheckBox1.setText(liverList.get(0).getString("name"));
-                    }
-
-                    if (size > 1) {
-                        CheckBox myCheckBox2 = (CheckBox) findViewById(R.id.checkBox2);
-                        myCheckBox2.setText(liverList.get(1).getString("name"));
-                    }
-
-                    if (size > 2) {
-                        CheckBox myCheckBox3 = (CheckBox) findViewById(R.id.checkBox3);
-                        myCheckBox3.setText(liverList.get(2).getString("name"));
-                    }
-
-                    if (size > 3) {
-                        CheckBox myCheckBox4 = (CheckBox) findViewById(R.id.checkBox4);
-                        myCheckBox4.setText(liverList.get(3).getString("name"));
-                    }
-
-                    if (size > 4) {
-                        CheckBox myCheckBox5 = (CheckBox) findViewById(R.id.checkBox5);
-                        myCheckBox5.setText(liverList.get(4).getString("name"));
-                    }
-
-                    if (size > 5) {
-                        CheckBox myCheckBox6 = (CheckBox) findViewById(R.id.checkBox6);
-                        myCheckBox6.setText(liverList.get(5).getString("name"));
-                    }
-
-                    if (size > 6) {
-                        CheckBox myCheckBox7 = (CheckBox) findViewById(R.id.checkBox7);
-                        myCheckBox7.setText(liverList.get(6).getString("name"));
-                    }
-
-                    if (size > 7) {
-                        CheckBox myCheckBox8 = (CheckBox) findViewById(R.id.checkBox8);
-                        myCheckBox8.setText(liverList.get(7).getString("name"));
-                    }
-
-                    if (size > 8) {
-                        CheckBox myCheckBox9 = (CheckBox) findViewById(R.id.checkBox9);
-                        myCheckBox9.setText(liverList.get(8).getString("name"));
-                    }
-
-                    if (size > 9) {
-                        CheckBox myCheckBox10 = (CheckBox) findViewById(R.id.checkBox10);
-                        myCheckBox10.setText(liverList.get(9).getString("name"));
-                    }
-
-
-                } else {
-                    Log.d("roommates", "Error: " + e.getMessage());
-                }
-            }
-        }); */
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_roomates);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-
-    }
-
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_select_roomates);
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+        }
 }
