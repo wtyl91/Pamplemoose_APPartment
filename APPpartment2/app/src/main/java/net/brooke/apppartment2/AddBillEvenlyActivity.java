@@ -29,7 +29,29 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         float amount = Float.parseFloat(code);
         System.out.println("Total Amount: " + amount);
 
-        System.out.println(ParseUser.getCurrentUser().getString("household"));
+        // Assume checkboxes returned an array of liverNums called numList
+        ParseObject newbill = new ParseObject("Bills");
+        newbill.put("Creator", ParseUser.getCurrentUser().getString("username"));
+        newbill.put("TotalAmount", amount);
+        int splitCount = numList.length;
+        float splitAmount = amount / splitCount;
+        for(Number num : numList){
+            String tagName = "inhabitant"+ num.toString();
+
+            if(num==ParseUser.getCurrentUser().getNumber("liverNum")){
+                newbill.put(tagName, (amount-splitAmount)*(-1));
+            }
+            else {
+                newbill.put(tagName, splitAmount);
+            }
+
+        }
+
+
+
+
+
+        /*System.out.println(ParseUser.getCurrentUser().getString("household"));
         ParseQuery<ParseObject> household = ParseQuery.getQuery("Household");
         household.whereEqualTo("houseID", ParseUser.getCurrentUser().getString("household"));
         household.getFirstInBackground(new GetCallback<ParseObject>() {
@@ -43,7 +65,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
                 }
             }
-                });
+        });*/
 
 
 
