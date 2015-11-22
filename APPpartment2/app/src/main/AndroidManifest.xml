@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <application
         android:name=".ParseConnect"
         android:allowBackup="true"
@@ -65,15 +64,6 @@
                 android:name="com.parse.ui.ParseLoginActivity.APP_LOGO"
                 android:resource="@drawable/appartment_logo_red" />
         </activity>
-        <activity
-            android:name=".AddRoommateActivity"
-            android:label="@string/title_activity_add_roommate"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity android:name=".AddExistingUserActivity" >
-        </activity>
-        <activity android:name=".SendInviteActivity" >
-        </activity>
         <activity android:name=".EnterApartmentActivity" >
         </activity>
         <activity
@@ -94,6 +84,11 @@
         <activity
             android:name=".SelectRoomatesActivity"
             android:label="@string/title_activity_select_roomates"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".RetrieveCodeActivity"
+            android:label="@string/title_activity_retrieve_code"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

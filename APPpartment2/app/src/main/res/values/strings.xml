@@ -27,4 +27,5 @@
     <string name="title_activity_add_bill_evenly">add_bill_evenly</string>
     <string name="title_activity_add_bill_custom">add_bill_custom</string>
     <string name="title_activity_select_roomates">SelectRoomates</string>
+    <string name="title_activity_retrieve_code">RetrieveCodeActivity</string>
 </resources>

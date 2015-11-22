@@ -5,8 +5,8 @@
         <menu>
             <item android:id="@+id/add_bill" android:icon="@drawable/ic_note_add"
                 android:title="Add Bill" />
-            <item android:id="@+id/add_roommate" android:icon="@drawable/ic_face"
-                android:title="Add Roommate" />
+            <item android:id="@+id/retrieve_code" android:icon="@drawable/ic_face"
+                android:title="Get Your App Code" />
         </menu>
     </item>
 
