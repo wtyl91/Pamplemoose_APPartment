@@ -17,6 +17,8 @@ public class AddBillActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
 
     }
 

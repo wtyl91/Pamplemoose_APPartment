@@ -1,6 +1,7 @@
 package net.brooke.apppartment2;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -106,5 +107,9 @@ public class SelectRoomatesActivity extends AppCompatActivity {
             setContentView(R.layout.activity_select_roomates);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
+
         }
 }

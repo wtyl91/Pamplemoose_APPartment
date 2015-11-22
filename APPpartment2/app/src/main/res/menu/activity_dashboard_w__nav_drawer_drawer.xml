@@ -4,7 +4,8 @@
     <item android:title="Add Apartment Info">
         <menu>
             <item android:id="@+id/add_bill" android:icon="@drawable/ic_note_add"
-                android:title="Add Bill" />
+                android:title="Add Bill"
+                />
             <item android:id="@+id/retrieve_code" android:icon="@drawable/ic_face"
                 android:title="Get Your App Code" />
         </menu>

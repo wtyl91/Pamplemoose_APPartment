@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\mandy_000\Documents\Pamplemoose_APPartment\APPpartment2\app\libs\ParseUI-Login\src\main\assets"/></dataSet><dataSet config="release"><source path="C:\Users\mandy_000\Documents\Pamplemoose_APPartment\APPpartment2\app\libs\ParseUI-Login\src\release\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/brookeryan/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/main/assets"/></dataSet><dataSet config="release"><source path="/Users/brookeryan/GitHub/Pamplemoose_APPartment/APPpartment2/app/libs/ParseUI-Login/src/release/assets"/></dataSet></merger>

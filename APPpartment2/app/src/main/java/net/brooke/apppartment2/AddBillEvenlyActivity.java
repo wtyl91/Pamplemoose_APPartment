@@ -115,6 +115,11 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bill_evenly);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle(null);
+        getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
 
         extras = getIntent().getExtras();
         numList = extras.getIntArray("numList");
