@@ -43,9 +43,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="This option will allow you to divide the bill into different portions. i.e. $100 divided by 4 people which the people owe $10, $20, $30, and $40."
+        android:text="This option will allow you to divide the bill into different portions. i.e. $100 can be divided into $10, $20, $30, and $40 among 4 people."
         android:id="@+id/textView11"
         android:layout_marginTop="69dp"
         android:layout_below="@+id/button7"
         android:layout_alignParentStart="true" />
+
 </RelativeLayout>
