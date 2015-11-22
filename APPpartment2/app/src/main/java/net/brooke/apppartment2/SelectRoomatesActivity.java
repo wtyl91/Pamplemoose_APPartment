@@ -23,6 +23,8 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SelectRoomatesActivity extends AppCompatActivity {
@@ -70,7 +72,16 @@ public class SelectRoomatesActivity extends AppCompatActivity {
             public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
 
+                    // Sort users list by liverNum order
+                    Collections.sort(users, new Comparator<ParseUser>() {
+                        public int compare(ParseUser u1, ParseUser u2) {
+                            return u1.getInt("liverNum") - u2.getInt("liverNum");
+                        }
+                    });
+
+
                     ArrayList<String> names = new ArrayList<String>();
+                    
 
                     for (int i = 0; i < users.size(); i++) {
                         ParseUser user = users.get(i);
@@ -79,7 +90,10 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                         names.add(name);
                     }
 
+
+
                     listView = (ListView) findViewById(R.id.list);
+
                     listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
                     listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
