@@ -211,8 +211,8 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
             // Handle the camera action
             Intent intent = new Intent(Dashboard_w_NavDrawer.this,AddBillActivity.class);
             startActivity(intent);
-        } else if (id == R.id.add_roommate) {
-            Intent intent = new Intent(Dashboard_w_NavDrawer.this, AddRoommateActivity.class);
+        } else if (id == R.id.retrieve_code) {
+            Intent intent = new Intent(Dashboard_w_NavDrawer.this, RetrieveCodeActivity.class);
             startActivity(intent);
         } else if (id == R.id.bill_summary) {
 
