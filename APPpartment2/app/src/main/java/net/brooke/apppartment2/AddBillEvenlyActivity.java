@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -68,6 +69,9 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
         newbill.saveInBackground();
 
+        Intent intent = new Intent(AddBillEvenlyActivity.this,Dashboard_w_NavDrawer.class);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "Successfully added bill.", Toast.LENGTH_SHORT).show();
 
 
     }
@@ -84,5 +88,6 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
 
     }
+
 
 }
