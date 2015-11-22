@@ -44,6 +44,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         newbill.put("TotalAmount", amount);
         newbill.put("Description", descriptionStr);
         newbill.put("BillName", titleStr);
+        newbill.put("Household", ParseUser.getCurrentUser().getString("household"));
 
         int splitCount = numList.length;
         float splitAmount = amount / splitCount;
