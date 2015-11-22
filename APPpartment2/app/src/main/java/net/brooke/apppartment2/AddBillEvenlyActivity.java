@@ -30,7 +30,11 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         int countLiver=1;
 
         EditText totalAmount = (EditText) findViewById(R.id.editText5);
+        EditText description = (EditText) findViewById(R.id.editText6);
+        EditText title = (EditText) findViewById(R.id.editText7);
         final String code = totalAmount.getText().toString();
+        final String titleStr = title.getText().toString();
+        final String descriptionStr = description.getText().toString();
         float amount = Float.parseFloat(code);
         System.out.println("Total Amount: " + amount);
 
@@ -38,6 +42,9 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         ParseObject newbill = new ParseObject("Bills");
         newbill.put("Creator", ParseUser.getCurrentUser().getString("username"));
         newbill.put("TotalAmount", amount);
+        newbill.put("Description", descriptionStr);
+        newbill.put("BillName", titleStr);
+
         int splitCount = numList.length;
         float splitAmount = amount / splitCount;
         while(countLiver<=10){
