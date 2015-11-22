@@ -18,12 +18,17 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddBillEvenlyActivity extends AppCompatActivity {
+    Bundle extras;
+    int[] numList;
 
     public void evenlyAddBill(View v) {
+        int countLiver=1;
+
         EditText totalAmount = (EditText) findViewById(R.id.editText5);
         final String code = totalAmount.getText().toString();
         float amount = Float.parseFloat(code);
@@ -35,37 +40,26 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         newbill.put("TotalAmount", amount);
         int splitCount = numList.length;
         float splitAmount = amount / splitCount;
+        while(countLiver<=10){
+            String tagName = "inhabitant"+ Integer.toString(countLiver);
+            newbill.put(tagName, 0);
+            countLiver++;
+        }
+
         for(Number num : numList){
+
             String tagName = "inhabitant"+ num.toString();
 
-            if(num==ParseUser.getCurrentUser().getNumber("liverNum")){
-                newbill.put(tagName, (amount-splitAmount)*(-1));
-            }
-            else {
+            if (num == ParseUser.getCurrentUser().getNumber("liverNum")) {
+                newbill.put(tagName, (amount - splitAmount) * (-1));
+            } else {
                 newbill.put(tagName, splitAmount);
             }
+            countLiver++;
 
         }
 
-
-
-
-
-        /*System.out.println(ParseUser.getCurrentUser().getString("household"));
-        ParseQuery<ParseObject> household = ParseQuery.getQuery("Household");
-        household.whereEqualTo("houseID", ParseUser.getCurrentUser().getString("household"));
-        household.getFirstInBackground(new GetCallback<ParseObject>() {
-            public void done(ParseObject apartment, ParseException e) {
-                if (apartment == null) {
-                    System.out.println("No Apt.");
-                }else{
-                    ArrayList<String> availableTags = (ArrayList) apartment.getList("inhabitants");
-                    int aptSize = availableTags.size();
-                    System.out.println("Apt Size: " + aptSize);
-
-                }
-            }
-        });*/
+        newbill.saveInBackground();
 
 
 
@@ -75,6 +69,11 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bill_evenly);
+
+
+        extras = getIntent().getExtras();
+        numList = extras.getIntArray("numList");
+
 
 
     }

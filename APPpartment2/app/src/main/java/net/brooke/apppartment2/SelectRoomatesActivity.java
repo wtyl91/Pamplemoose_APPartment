@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
@@ -21,12 +22,40 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SelectRoomatesActivity extends AppCompatActivity {
 
+    private ListView listView = null;
+
+
     public void onClickToEven(View v) {
+        listView.getCheckedItemCount();
+
+
+        SparseBooleanArray checkedItems = listView.getCheckedItemPositions();
+        int siz = checkedItems.size();
+        int[] listOfNums = new int[siz];
+        if (checkedItems != null) {
+
+            for (int i=0; i<checkedItems.size(); i++) {
+                if (checkedItems.valueAt(i)) {
+                    String item = listView.getAdapter().getItem(
+                            checkedItems.keyAt(i)).toString();
+                    listOfNums[i] = checkedItems.keyAt(i)+1;
+                    System.out.println("Hi" + listOfNums[i]);
+                    Log.i("Hello",item + " was selected");
+
+                }
+            }
+            System.out.println(Arrays.toString(listOfNums));
+        }
+
+
+
         Intent intent = new Intent(SelectRoomatesActivity.this, AddBillEvenlyActivity.class);
+        intent.putExtra("numList", listOfNums);
         startActivity(intent);
     }
 
@@ -50,7 +79,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                         names.add(name);
                     }
 
-                    ListView listView = (ListView) findViewById(R.id.list);
+                    listView = (ListView) findViewById(R.id.list);
                     listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
 
                     listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
