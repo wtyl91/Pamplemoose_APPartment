@@ -53,26 +53,10 @@
         android:layout_height="wrap_content"
         android:text="Add"
         android:id="@+id/button9"
-        android:layout_below="@+id/editText6"
-        android:layout_alignParentEnd="true"
-        android:onClick="evenlyAddBill"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView14"
+        android:onClick="evenlyAddBill"
+        android:layout_marginBottom="43dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="39dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtAptSize"
-        android:layout_above="@+id/textView14"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,5 +79,33 @@
         android:focusableInTouchMode="true">
         <requestFocus/>
     </EditText>
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        android:id="@+id/switch1"
+        android:layout_below="@+id/editText6"
+        android:layout_alignParentStart="true"
+        />
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/switch1"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/button9"
+        android:layout_alignParentEnd="true"
+        android:visibility="invisible" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            ></LinearLayout>
+    </ScrollView><![CDATA[
+
     />
+]]>
 </RelativeLayout>

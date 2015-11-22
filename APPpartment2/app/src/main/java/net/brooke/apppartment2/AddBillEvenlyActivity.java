@@ -8,7 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,14 +32,39 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
     int[] numList;
 
     public void evenlyAddBill(View v) {
+
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+
+        // Listen to Switch
+        Switch btnSwitch = (Switch) findViewById(R.id.switch1);
+        btnSwitch.setChecked(false);
+        //btnToggle = (ToggleButton) findViewById(R.id.toggle_1);
+
+        btnSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Log.i("Switch", "ON");
+                    scrollView.setVisibility(View.VISIBLE);
+
+                } else {
+                    //Log.i("Switch", "OFF");
+                    scrollView.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+
         int countLiver=1;
 
         EditText totalAmount = (EditText) findViewById(R.id.editText5);
         EditText description = (EditText) findViewById(R.id.editText6);
         EditText title = (EditText) findViewById(R.id.editText7);
+
         final String code = totalAmount.getText().toString();
         final String titleStr = title.getText().toString();
         final String descriptionStr = description.getText().toString();
+
         float amount = Float.parseFloat(code);
         System.out.println("Total Amount: " + amount);
 
@@ -46,6 +75,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         newbill.put("Description", descriptionStr);
         newbill.put("BillName", titleStr);
 
+        // Even Split
         int splitCount = numList.length;
         float splitAmount = amount / splitCount;
         while(countLiver<=10){
@@ -74,7 +104,10 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Successfully added bill.", Toast.LENGTH_SHORT).show();
 
 
+
+
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +117,12 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         numList = extras.getIntArray("numList");
+
+        String[] testArr = {"Sean", "Tom", "Le", "Brooke", "Mandy"};
+        final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+
+
+
 
 
 
