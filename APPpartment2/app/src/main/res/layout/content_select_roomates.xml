@@ -15,16 +15,24 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button8" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/checkBox" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ok"
         android:id="@+id/button8"
+        android:onClick="onClickToEven"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="40dp"
-        android:onClick="onClickToEven"/>
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBox"
+        android:onClick="onClickSelectAll"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

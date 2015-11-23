@@ -32,6 +32,15 @@ import java.util.List;
 public class SelectRoomatesActivity extends AppCompatActivity {
 
     private ListView listView = null;
+    private ArrayList<String> names;
+
+    public void onClickSelectAll(View v) {/*
+        for(int i=0; i < listView.getChildCount(); i++){
+            RelativeLayout itemLayout = (RelativeLayout)listView.getChildAt(i);
+            CheckBox cb = (CheckBox)itemLayout.findViewById(R.id.MyListViewCheckBox);
+            cb.setChecked(true);
+        }*/
+    }
 
     public void onClickToEven(View v) {
 
@@ -80,7 +89,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                         }
                     });
 
-                    ArrayList<String> names = new ArrayList<String>();
+                    names = new ArrayList<String>();
 
                     for (int i = 0; i < users.size(); i++) {
                         ParseUser user = users.get(i);
