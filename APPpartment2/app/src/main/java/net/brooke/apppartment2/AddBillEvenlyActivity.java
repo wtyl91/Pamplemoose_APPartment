@@ -31,31 +31,15 @@ import java.util.List;
 public class AddBillEvenlyActivity extends AppCompatActivity {
     Bundle extras;
     int[] numList;
-    public static final String[] testStrings = {"Sean", "Brooke", "Le", "Tom", "Mandy"};
 
     public void evenlyAddBill(View v) {
 
+        // Check if switch is on or off
+
+        // TODO:
+        // If Switch is Off, add bill using even split
+        // If Switch is On, add bill using custom split
         final ListView listView = (ListView) findViewById(R.id.listView);
-
-
-        // Listen to Switch
-        Switch btnSwitch = (Switch) findViewById(R.id.switch1);
-        btnSwitch.setChecked(false);
-        //btnToggle = (ToggleButton) findViewById(R.id.toggle_1);
-
-        btnSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    //Log.i("Switch", "ON");
-                    listView.setVisibility(View.VISIBLE);
-
-                } else {
-                    //Log.i("Switch", "OFF");
-                    listView.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
 
         // Even Split
         int countLiver=1;
@@ -107,9 +91,6 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         startActivity(intent);
         Toast.makeText(getApplicationContext(), "Successfully added bill.", Toast.LENGTH_SHORT).show();
 
-
-
-
     }
 
 
@@ -127,21 +108,63 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         extras = getIntent().getExtras();
         numList = extras.getIntArray("numList");
 
-        ListView listView = (ListView) findViewById(R.id.listView);
-        //listView.setOnItemSelectedListener(this);
-        ArrayAdapter<String> aa=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
-                testStrings);
+        for (int i = 0; i < numList.length; i++) {
+            System.out.println("numList: " + numList[i]);
+        }
 
-        listView.setAdapter(aa);
-
-
-
-
-
-
-
-
+        setupListView();
     }
 
+    private void setupListView() {
 
+        final ListView listView = (ListView) findViewById(R.id.listView);
+
+        String aptCode = ParseUser.getCurrentUser().getString("household");
+
+        // Make a list of queries
+        List<ParseQuery<ParseUser>> queries = new ArrayList<ParseQuery<ParseUser>>();
+
+
+        for (int i = 0; i < numList.length; i++) {
+            ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
+            userQuery.whereEqualTo("household", aptCode);
+            userQuery.whereEqualTo("liverNum", numList[i]);
+
+            queries.add(userQuery);
+        }
+        ParseQuery<ParseUser> mainQuery = ParseQuery.or(queries);
+
+        mainQuery.findInBackground(new FindCallback<ParseUser>() {
+            public void done(List<ParseUser> users, ParseException e) {
+                String[] names = new String[numList.length];
+
+                for (int i = 0; i < names.length; i++) {
+                    names[i] = users.get(i).getString("name");
+                }
+
+                ArrayAdapter<String> aa=new ArrayAdapter<String>(AddBillEvenlyActivity.this, android.R.layout.simple_spinner_item,
+                        names);
+
+                listView.setAdapter(aa);
+            }
+        });
+
+        // Listen to Switch
+        Switch btnSwitch = (Switch) findViewById(R.id.switch1);
+        btnSwitch.setChecked(false);
+
+        btnSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //Log.i("Switch", "ON");
+                    listView.setVisibility(View.VISIBLE);
+
+                } else {
+                    //Log.i("Switch", "OFF");
+                    listView.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+    }
 }
