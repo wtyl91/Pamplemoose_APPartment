@@ -38,11 +38,11 @@ public class SelectRoomatesActivity extends AppCompatActivity {
         boolean checked = ((CheckBox) v).isChecked();
 
         if(checked){
-            for(int i = 0; i<= listView.getAdapter().getCount(); i++){
+            for(int i = 0; i< listView.getAdapter().getCount(); i++){
                 listView.setItemChecked(i, true);
             }
         } else {
-            for(int i = 0; i<= listView.getAdapter().getCount(); i++){
+            for(int i = 0; i< listView.getAdapter().getCount(); i++){
                 listView.setItemChecked(i, false);
             }
         }
