@@ -34,12 +34,19 @@ public class SelectRoomatesActivity extends AppCompatActivity {
     private ListView listView = null;
     private ArrayList<String> names;
 
-    public void onClickSelectAll(View v) {/*
-        for(int i=0; i < listView.getChildCount(); i++){
-            RelativeLayout itemLayout = (RelativeLayout)listView.getChildAt(i);
-            CheckBox cb = (CheckBox)itemLayout.findViewById(R.id.MyListViewCheckBox);
-            cb.setChecked(true);
-        }*/
+    public void onClickSelectAll(View v) {
+        boolean checked = ((CheckBox) v).isChecked();
+
+        if(checked){
+            for(int i = 0; i<= listView.getAdapter().getCount(); i++){
+                listView.setItemChecked(i, true);
+            }
+        } else {
+            for(int i = 0; i<= listView.getAdapter().getCount(); i++){
+                listView.setItemChecked(i, false);
+            }
+        }
+
     }
 
     public void onClickToEven(View v) {
