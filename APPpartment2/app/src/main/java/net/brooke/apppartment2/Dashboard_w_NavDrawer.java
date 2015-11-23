@@ -112,7 +112,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 6) {
                         ParseObject liver = liverList.get(6);
                         int tagNum = (int)liver.getNumber("liverNum");
-                        TextView myTextView = (TextView) findViewById(R.id.Person6);
+                        TextView myTextView = (TextView) findViewById(R.id.Person7);
 
                         getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
 
@@ -121,7 +121,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 7) {
                         ParseObject liver = liverList.get(7);
                         int tagNum = (int)liver.getNumber("liverNum");
-                        TextView myTextView = (TextView) findViewById(R.id.Person6);
+                        TextView myTextView = (TextView) findViewById(R.id.Person8);
 
                         getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
 
@@ -130,7 +130,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 8) {
                         ParseObject liver = liverList.get(8);
                         int tagNum = (int)liver.getNumber("liverNum");
-                        TextView myTextView = (TextView) findViewById(R.id.Person6);
+                        TextView myTextView = (TextView) findViewById(R.id.Person9);
 
                         getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
 
@@ -139,7 +139,7 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                     if (size > 9) {
                         ParseObject liver = liverList.get(9);
                         int tagNum = (int)liver.getNumber("liverNum");
-                        TextView myTextView = (TextView) findViewById(R.id.Person6);
+                        TextView myTextView = (TextView) findViewById(R.id.Person10);
 
                         getAndDisplayNameSum(aptCode, liver, tagNum, myTextView);
 

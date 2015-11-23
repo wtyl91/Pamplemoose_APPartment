@@ -34,14 +34,9 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
     public void evenlyAddBill(View v) {
 
-        // Check if switch is on or off
+        Switch btnSwitch = (Switch) findViewById(R.id.switch1);
+        //final ListView listView = (ListView) findViewById(R.id.listView);
 
-        // TODO:
-        // If Switch is Off, add bill using even split
-        // If Switch is On, add bill using custom split
-        final ListView listView = (ListView) findViewById(R.id.listView);
-
-        // Even Split
         int countLiver=1;
 
         EditText totalAmount = (EditText) findViewById(R.id.editText5);
@@ -64,24 +59,33 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         newbill.put("Household", ParseUser.getCurrentUser().getString("household"));
 
         // Even Split
-        int splitCount = numList.length;
-        float splitAmount = amount / splitCount;
-        while(countLiver<=10){
-            String tagName = "inhabitant"+ Integer.toString(countLiver);
-            newbill.put(tagName, 0);
-            countLiver++;
-        }
+        // If Switch is Off, add bill using even split
+        if (btnSwitch.isChecked() == false) {
 
-        for(Number num : numList){
-
-            String tagName = "inhabitant"+ num.toString();
-
-            if (num == ParseUser.getCurrentUser().getNumber("liverNum")) {
-                newbill.put(tagName, (amount - splitAmount) * (-1));
-            } else {
-                newbill.put(tagName, splitAmount);
+            int splitCount = numList.length;
+            float splitAmount = amount / splitCount;
+            while (countLiver <= 10) {
+                String tagName = "inhabitant" + Integer.toString(countLiver);
+                newbill.put(tagName, 0);
+                countLiver++;
             }
-            countLiver++;
+
+            for (Number num : numList) {
+
+                String tagName = "inhabitant" + num.toString();
+
+                if (num == ParseUser.getCurrentUser().getNumber("liverNum")) {
+                    newbill.put(tagName, (amount - splitAmount) * (-1));
+                } else {
+                    newbill.put(tagName, splitAmount);
+                }
+                countLiver++;
+
+            }
+
+        }
+        // Else, if switch is On, use Custom Split
+        else {
 
         }
 
