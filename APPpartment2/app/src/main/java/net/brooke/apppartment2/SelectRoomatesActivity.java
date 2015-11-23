@@ -69,12 +69,12 @@ public class SelectRoomatesActivity extends AppCompatActivity {
             System.out.println(Arrays.toString(listOfNums));
         }
 
-        if(listOfNums.length > 1) {
+        if(listOfNums.length > 0) {
             Intent intent = new Intent(SelectRoomatesActivity.this, AddBillEvenlyActivity.class);
             intent.putExtra("numList", listOfNums);
             startActivity(intent);
         } else {
-            Toast.makeText(getApplicationContext(), "Need to select at least 2 people.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Need to select at least 1 person.", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -85,6 +85,9 @@ public class SelectRoomatesActivity extends AppCompatActivity {
         String aptCode = ParseUser.getCurrentUser().getString("household");
         ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
         userQuery.whereEqualTo("household", aptCode);
+
+        // Remove Current User from Query
+        userQuery.whereNotEqualTo("objectId", ParseUser.getCurrentUser().getObjectId());
 
         userQuery.findInBackground(new FindCallback<ParseUser>() {
             public void done(List<ParseUser> users, ParseException e) {

@@ -40,7 +40,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
     public void evenlyAddBill(View v) {
 
         Switch btnSwitch = (Switch) findViewById(R.id.switch1);
-        //final ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.listView);
 
         int countLiver=1;
 
@@ -52,7 +52,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         final String titleStr = title.getText().toString();
         final String descriptionStr = description.getText().toString();
 
-        float amount = Float.parseFloat(code);
+        double amount = Double.parseDouble(code);
         System.out.println("Total Amount: " + amount);
 
         // Assume checkboxes returned an array of liverNums called numList
@@ -65,16 +65,20 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
         // Even Split
         // If Switch is Off, add bill using even split
-        if (btnSwitch.isChecked() == false) {
 
-            int splitCount = numList.length;
-            float splitAmount = amount / splitCount;
+
+            int splitCount = numList.length + 1;
+            double splitAmount = amount / splitCount;
             while (countLiver <= 10) {
                 String tagName = "inhabitant" + Integer.toString(countLiver);
                 newbill.put(tagName, 0);
                 countLiver++;
             }
 
+
+            if (btnSwitch.isChecked() == false) {
+
+                /* // OLD VERSION
             for (Number num : numList) {
 
                 String tagName = "inhabitant" + num.toString();
@@ -84,13 +88,56 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                 } else {
                     newbill.put(tagName, splitAmount);
                 }
-                countLiver++;
+                countLiver++; */
 
-            }
+                String tagName;
+                for (Number num : numList) {
+                    tagName = "inhabitant" + num.toString();
+                    newbill.put(tagName, splitAmount);
+                }
+                tagName = "inhabitant" + ParseUser.getCurrentUser().getNumber("liverNum").toString();
+                newbill.put(tagName, (amount - splitAmount) * (-1));
 
         }
         // Else, if switch is On, use Custom Split
         else {
+            Double sum = 0.0;
+                double[] splitArray = new double[numList.length];
+
+            for(int i = 0; i < listView.getAdapter().getCount(); i++){
+                View view = listView.getChildAt(i);
+                EditText editText = (EditText) view.findViewById(R.id.et);
+                String string = editText.getText().toString();
+                if(!string.equals("")) {
+                    splitArray[i] = Double.parseDouble(string);
+                    sum += Double.parseDouble(string);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Error: Not all fields have been filled out.",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+
+            //System.out.println("Sum is: " + sum);
+            if (sum.compareTo(amount) > 0.0) {
+                Toast.makeText(getApplicationContext(), "Error: The amounts entered are greater than the total amount.",
+                        Toast.LENGTH_LONG).show();
+                return;
+            }
+
+                int index = 0;
+                String tagName;
+                for (Number num : numList) {
+
+                    tagName = "inhabitant" + num.toString();
+                    newbill.put(tagName, splitArray[index]);
+                    index++;
+                }
+                tagName = "inhabitant" + ParseUser.getCurrentUser().getNumber("liverNum").toString();
+                newbill.put(tagName, -sum);
+
 
         }
 
