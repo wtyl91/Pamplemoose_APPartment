@@ -8,10 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
-import android.widget.ScrollView;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,10 +31,12 @@ import java.util.List;
 public class AddBillEvenlyActivity extends AppCompatActivity {
     Bundle extras;
     int[] numList;
+    public static final String[] testStrings = {"Sean", "Brooke", "Le", "Tom", "Mandy"};
 
     public void evenlyAddBill(View v) {
 
-        final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+        final ListView listView = (ListView) findViewById(R.id.listView);
+
 
         // Listen to Switch
         Switch btnSwitch = (Switch) findViewById(R.id.switch1);
@@ -45,16 +48,16 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     //Log.i("Switch", "ON");
-                    scrollView.setVisibility(View.VISIBLE);
+                    listView.setVisibility(View.VISIBLE);
 
                 } else {
                     //Log.i("Switch", "OFF");
-                    scrollView.setVisibility(View.INVISIBLE);
+                    listView.setVisibility(View.INVISIBLE);
                 }
             }
         });
 
-
+        // Even Split
         int countLiver=1;
 
         EditText totalAmount = (EditText) findViewById(R.id.editText5);
@@ -124,8 +127,14 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         extras = getIntent().getExtras();
         numList = extras.getIntArray("numList");
 
-        String[] testArr = {"Sean", "Tom", "Le", "Brooke", "Mandy"};
-        final ScrollView scrollView = (ScrollView) findViewById(R.id.scrollView);
+        ListView listView = (ListView) findViewById(R.id.listView);
+        //listView.setOnItemSelectedListener(this);
+        ArrayAdapter<String> aa=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
+                testStrings);
+
+        listView.setAdapter(aa);
+
+
 
 
 
