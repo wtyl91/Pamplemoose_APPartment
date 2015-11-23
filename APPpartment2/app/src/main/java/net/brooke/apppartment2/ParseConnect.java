@@ -21,11 +21,7 @@ public class ParseConnect extends Application {
         Parse.initialize(this, "f4P9dlTd7ZkYCpAy2SFCAPVfIq5KtkwDdDW2lk1c", "ucqXajPCK1zrVooXgFR5iDzOoJCQBZzmZiUs09jn");
 
         ParseFacebookUtils.initialize(this);
-
-        // test connection
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        
 
     }
 }
