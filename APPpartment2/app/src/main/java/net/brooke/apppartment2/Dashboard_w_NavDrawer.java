@@ -24,6 +24,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -234,16 +235,18 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
                 if (e == null) {
                     String oweCol = "inhabitant" + Integer.toString(liverNum);
                     Log.d("inhabitantQ", oweCol);
-                    int sum = 0;
+                    Double sum = 0.0;
 
                     for (int i = 0; i < billList.size(); i++) {
 
-                        sum += (int) billList.get(i).getNumber(oweCol);
+                        sum += billList.get(i).getDouble(oweCol);
 
                     }
 
+                    DecimalFormat df = new DecimalFormat("$0.00");
 
-                    view.setText(liver.getString("name") + " " + sum);
+
+                    view.setText(liver.getString("name") + " " + df.format(sum));
 
                 }
             }
