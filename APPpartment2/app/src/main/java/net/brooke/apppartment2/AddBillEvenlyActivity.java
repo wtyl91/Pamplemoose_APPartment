@@ -93,6 +93,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                 String tagName;
                 for (Number num : numList) {
                     tagName = "inhabitant" + num.toString();
+                    System.out.println("tagName: " + tagName);
                     newbill.put(tagName, splitAmount);
                 }
                 tagName = "inhabitant" + ParseUser.getCurrentUser().getNumber("liverNum").toString();
@@ -170,6 +171,9 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         }
 
         setupListView();
+        for (int i = 0; i < numList.length; i++) {
+            System.out.println("num: " + numList[i]);
+        }
     }
 
     private void setupListView() {

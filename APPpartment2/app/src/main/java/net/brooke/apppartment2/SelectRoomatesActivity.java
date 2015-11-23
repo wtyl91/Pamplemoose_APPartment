@@ -56,14 +56,25 @@ public class SelectRoomatesActivity extends AppCompatActivity {
         int siz = checkedItems.size();
         int[] listOfNums = new int[siz];
 
+        int num = 0;
+        int offset = 0;
         if (checkedItems != null) {
             for (int i=0; i<checkedItems.size(); i++) {
-                if (checkedItems.valueAt(i)) {
+                if (checkedItems.valueAt(i) ) {
                     String item = listView.getAdapter().getItem(
                             checkedItems.keyAt(i)).toString();
-                    listOfNums[i] = checkedItems.keyAt(i)+1;
-                    System.out.println("Hi" + listOfNums[i]);
-                    Log.i("Hello",item + " was selected");
+                    //System.out.println("keyAt: " + checkedItems.keyAt(i));
+                    if (checkedItems.keyAt(i) == ParseUser.getCurrentUser().getInt("liverNum")) {
+                        offset = 1;
+                    }
+
+                    //if (checkedItems.keyAt(i))
+                    num = checkedItems.keyAt(i) + 1 + offset;
+                        listOfNums[i] = checkedItems.keyAt(i) + 1 + offset;
+                        System.out.println("Hi" + listOfNums[i]);
+                        Log.i("Hello", item + " was selected");
+
+
                 }
             }
             System.out.println(Arrays.toString(listOfNums));
