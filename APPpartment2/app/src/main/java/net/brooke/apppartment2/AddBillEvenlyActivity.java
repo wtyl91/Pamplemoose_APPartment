@@ -1,5 +1,6 @@
 package net.brooke.apppartment2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,8 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
@@ -31,6 +35,7 @@ import java.util.List;
 public class AddBillEvenlyActivity extends AppCompatActivity {
     Bundle extras;
     int[] numList;
+
 
     public void evenlyAddBill(View v) {
 
@@ -109,6 +114,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
 
+
         extras = getIntent().getExtras();
         numList = extras.getIntArray("numList");
 
@@ -145,11 +151,11 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                 for (int i = 0; i < names.length; i++) {
                     names[i] = users.get(i).getString("name");
                 }
+                listView.setItemsCanFocus(true);
+                //ArrayAdapter<String> aa=new ArrayAdapter<String>(AddBillEvenlyActivity.this, android.R.layout.simple_spinner_item,
+                //        names);
 
-                ArrayAdapter<String> aa=new ArrayAdapter<String>(AddBillEvenlyActivity.this, android.R.layout.simple_spinner_item,
-                        names);
-
-                listView.setAdapter(aa);
+                listView.setAdapter(new CustomAdapter(AddBillEvenlyActivity.this, names));
             }
         });
 
