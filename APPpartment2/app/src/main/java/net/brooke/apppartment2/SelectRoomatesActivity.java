@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -32,16 +33,14 @@ public class SelectRoomatesActivity extends AppCompatActivity {
 
     private ListView listView = null;
 
-
     public void onClickToEven(View v) {
+
         listView.getCheckedItemCount();
-
-
         SparseBooleanArray checkedItems = listView.getCheckedItemPositions();
         int siz = checkedItems.size();
         int[] listOfNums = new int[siz];
-        if (checkedItems != null) {
 
+        if (checkedItems != null) {
             for (int i=0; i<checkedItems.size(); i++) {
                 if (checkedItems.valueAt(i)) {
                     String item = listView.getAdapter().getItem(
@@ -49,30 +48,31 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                     listOfNums[i] = checkedItems.keyAt(i)+1;
                     System.out.println("Hi" + listOfNums[i]);
                     Log.i("Hello",item + " was selected");
-
                 }
             }
             System.out.println(Arrays.toString(listOfNums));
         }
 
+        if(listOfNums.length > 1) {
+            Intent intent = new Intent(SelectRoomatesActivity.this, AddBillEvenlyActivity.class);
+            intent.putExtra("numList", listOfNums);
+            startActivity(intent);
+        } else {
+            Toast.makeText(getApplicationContext(), "Need to select at least 2 people.", Toast.LENGTH_SHORT).show();
+        }
 
-
-        Intent intent = new Intent(SelectRoomatesActivity.this, AddBillEvenlyActivity.class);
-        intent.putExtra("numList", listOfNums);
-        startActivity(intent);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String aptCode = ParseUser.getCurrentUser().getString("household");
 
+        String aptCode = ParseUser.getCurrentUser().getString("household");
         ParseQuery<ParseUser> userQuery = ParseUser.getQuery();
         userQuery.whereEqualTo("household", aptCode);
 
         userQuery.findInBackground(new FindCallback<ParseUser>() {
             public void done(List<ParseUser> users, ParseException e) {
                 if (e == null) {
-
                     // Sort users list by liverNum order
                     Collections.sort(users, new Comparator<ParseUser>() {
                         public int compare(ParseUser u1, ParseUser u2) {
@@ -80,9 +80,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                         }
                     });
 
-
                     ArrayList<String> names = new ArrayList<String>();
-                    
 
                     for (int i = 0; i < users.size(); i++) {
                         ParseUser user = users.get(i);
@@ -91,23 +89,19 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                         names.add(name);
                     }
 
-
-
                     listView = (ListView) findViewById(R.id.list);
-
                     listView.setChoiceMode(AbsListView.CHOICE_MODE_MULTIPLE);
-
                     listView.setAdapter(new ArrayAdapter<String>(SelectRoomatesActivity.this,
                             android.R.layout.simple_list_item_multiple_choice,
                             names));
                 }
             }
         });
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_select_roomates);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_roomates);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
 
