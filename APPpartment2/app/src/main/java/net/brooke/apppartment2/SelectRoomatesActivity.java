@@ -135,5 +135,14 @@ public class SelectRoomatesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
         getSupportActionBar().setLogo(R.drawable.appartment_logo_red);
 
-        }
+        FloatingActionButton fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SelectRoomatesActivity.this, Dashboard_w_NavDrawer.class);
+                startActivity(intent);
+            }
+        });
+
+    }
 }

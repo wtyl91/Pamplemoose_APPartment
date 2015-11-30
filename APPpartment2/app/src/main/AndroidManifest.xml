@@ -16,7 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme.NoActionBar" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -84,6 +84,11 @@
         <activity
             android:name=".RetrieveCodeActivity"
             android:label="@string/title_activity_retrieve_code"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".BillSummaryActivity"
+            android:label="@string/title_activity_bill_summary"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>

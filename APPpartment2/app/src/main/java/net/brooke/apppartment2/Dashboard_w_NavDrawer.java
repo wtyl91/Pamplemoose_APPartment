@@ -218,7 +218,8 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
             Intent intent = new Intent(Dashboard_w_NavDrawer.this, RetrieveCodeActivity.class);
             startActivity(intent);
         } else if (id == R.id.bill_summary) {
-
+            Intent intent = new Intent(Dashboard_w_NavDrawer.this, BillSummaryActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -8,23 +8,37 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/app_bar_dashboard_w__nav_drawer" tools:context=".Dashboard_w_NavDrawer">
+    tools:showIn="@layout/app_bar_dashboard_w__nav_drawer" tools:context=".Dashboard_w_NavDrawer"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="APPartment Summary"
+        android:id="@+id/textView21"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="sans-serif-condensed" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Welcome to your APPartment!  Use this page to view outstanding balances among roommates.  Navigate to the drawer to add a bill for the APPartment, pay a bill, or retrieve the code to invite others!   "
+        android:id="@+id/textView22"
+        android:gravity="center"
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".2" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:id="@+id/Person1"
-        android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill1"
-        android:layout_alignBottom="@+id/Person1"
-        android:layout_toEndOf="@+id/Person1"
-        android:fontFamily="sans-serif-condensed" />
+        android:textSize="18dp"
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight="0.04" />
+
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,16 +46,9 @@
         android:id="@+id/Person2"
         android:layout_below="@+id/Person1"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight="0.04" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill2"
-        android:layout_alignBottom="@+id/Person2"
-        android:layout_toEndOf="@+id/Person2"
-        android:fontFamily="sans-serif-condensed" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,16 +56,8 @@
         android:id="@+id/Person3"
         android:layout_below="@+id/Person2"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill3"
-        android:layout_alignBottom="@+id/Person3"
-        android:layout_toEndOf="@+id/Person3"
-        android:fontFamily="sans-serif-condensed" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight="0.04" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,16 +65,8 @@
         android:id="@+id/Person4"
         android:layout_below="@+id/Person3"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill4"
-        android:layout_alignBottom="@+id/Person4"
-        android:layout_toEndOf="@+id/Person4"
-        android:fontFamily="sans-serif-condensed" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight="0.04" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,16 +74,8 @@
         android:id="@+id/Person5"
         android:layout_below="@+id/Person4"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill5"
-        android:layout_alignBottom="@+id/Person5"
-        android:layout_toEndOf="@+id/Person5"
-        android:fontFamily="sans-serif-condensed" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".04" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,16 +83,8 @@
         android:id="@+id/Person6"
         android:layout_below="@+id/Person5"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill6"
-        android:layout_alignBottom="@+id/Person6"
-        android:layout_toEndOf="@+id/Person6"
-        android:fontFamily="sans-serif-condensed" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".04" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -117,16 +92,9 @@
         android:id="@+id/Person7"
         android:layout_below="@+id/Person6"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".04" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill7"
-        android:layout_alignBottom="@+id/Person7"
-        android:layout_toEndOf="@+id/Person7"
-        android:fontFamily="sans-serif-condensed" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -134,16 +102,9 @@
         android:id="@+id/Person8"
         android:layout_below="@+id/Person7"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".04" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill8"
-        android:layout_alignBottom="@+id/Person8"
-        android:layout_toEndOf="@+id/Person8"
-        android:fontFamily="sans-serif-condensed" />
 
     <TextView android:text="" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -151,34 +112,20 @@
         android:id="@+id/Person9"
         android:layout_below="@+id/Person8"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_weight=".04" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill9"
-        android:layout_alignBottom="@+id/Person9"
-        android:layout_toEndOf="@+id/Person9"
-        android:fontFamily="sans-serif-condensed" />
 
-    <TextView android:text="" android:layout_width="wrap_content"
+    <TextView android:text="" android:layout_width="36dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
         android:id="@+id/Person10"
         android:layout_below="@+id/Person9"
         android:textSize="18dp"
-        android:fontFamily="sans-serif-thin" />
+        android:fontFamily="sans-serif-thin"
+        android:layout_gravity="left"
+        android:layout_weight=".04" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/Bill10"
-        android:layout_alignBottom="@+id/Person10"
-        android:layout_toEndOf="@+id/Person10"
-        android:fontFamily="sans-serif-condensed" />
 
 
 </LinearLayout>
