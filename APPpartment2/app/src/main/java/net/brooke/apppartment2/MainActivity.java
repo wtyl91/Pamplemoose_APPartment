@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         // Checks if device is connected to the internet
-        if ( !isInternetAvailable() ) {
-            Context context = getApplicationContext();
-            CharSequence text = "Device not connected to the internet, application will not work.";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        }
+//        if ( !isInternetAvailable() ) {
+//            Context context = getApplicationContext();
+//            CharSequence text = "Device not connected to the internet, application will not work.";
+//            int duration = Toast.LENGTH_SHORT;
+//
+//            Toast toast = Toast.makeText(context, text, duration);
+//            toast.show();
+//        }
 
         super.onCreate(savedInstanceState);
 
