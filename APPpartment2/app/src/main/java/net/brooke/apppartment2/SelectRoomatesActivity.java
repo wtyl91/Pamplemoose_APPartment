@@ -53,11 +53,21 @@ public class SelectRoomatesActivity extends AppCompatActivity {
 
         listView.getCheckedItemCount();
         SparseBooleanArray checkedItems = listView.getCheckedItemPositions();
-        int siz = checkedItems.size();
+        int siz = 0;
+
+        for (int i = 0; i < checkedItems.size(); i++) {
+            if (checkedItems.get(i) == true) {
+                siz++;
+            }
+        }
+
+
+
         int[] listOfNums = new int[siz];
 
         int num = 0;
         int offset = 0;
+        int numIndex = 0;
         if (checkedItems != null) {
             for (int i=0; i<checkedItems.size(); i++) {
                 if (checkedItems.valueAt(i) ) {
@@ -70,9 +80,10 @@ public class SelectRoomatesActivity extends AppCompatActivity {
 
                     //if (checkedItems.keyAt(i))
                     num = checkedItems.keyAt(i) + 1 + offset;
-                        listOfNums[i] = checkedItems.keyAt(i) + 1 + offset;
-                        System.out.println("Hi" + listOfNums[i]);
-                        Log.i("Hello", item + " was selected");
+                    listOfNums[numIndex] = checkedItems.keyAt(i) + 1 + offset;
+                    System.out.println("Hi" + listOfNums[numIndex]);
+                    numIndex++;
+                    Log.i("Hello", item + " was selected");
 
 
                 }
