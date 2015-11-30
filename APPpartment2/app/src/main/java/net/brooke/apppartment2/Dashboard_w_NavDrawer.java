@@ -26,6 +26,8 @@ import com.parse.ParseUser;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -57,6 +59,13 @@ public class Dashboard_w_NavDrawer extends AppCompatActivity
         usersQuery.findInBackground(new FindCallback<ParseUser>() {
             public void done(List<ParseUser> liverList, ParseException e) {
                 if (e == null) {
+
+                    // Sort liverList by liverNum
+                    Collections.sort(liverList, new Comparator<ParseUser>() {
+                        public int compare(ParseUser u1, ParseUser u2) {
+                            return u1.getInt("liverNum") - u2.getInt("liverNum");
+                        }
+                    });
 
                     int size = liverList.size();
 

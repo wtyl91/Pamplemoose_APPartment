@@ -64,7 +64,7 @@ public class SelectRoomatesActivity extends AppCompatActivity {
                     String item = listView.getAdapter().getItem(
                             checkedItems.keyAt(i)).toString();
                     //System.out.println("keyAt: " + checkedItems.keyAt(i));
-                    if (checkedItems.keyAt(i) == ParseUser.getCurrentUser().getInt("liverNum")) {
+                    if ( (checkedItems.keyAt(i) + 1) == ParseUser.getCurrentUser().getInt("liverNum")) {
                         offset = 1;
                     }
 

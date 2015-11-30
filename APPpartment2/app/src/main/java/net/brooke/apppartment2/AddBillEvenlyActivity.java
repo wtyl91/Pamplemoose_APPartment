@@ -31,6 +31,8 @@ import com.parse.SaveCallback;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class AddBillEvenlyActivity extends AppCompatActivity {
@@ -133,10 +135,12 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
 
                     tagName = "inhabitant" + num.toString();
                     newbill.put(tagName, Double.parseDouble(amounts[index]));
+                    //System.out.println("Assigned " + tagName + " with: " + amounts[index]);
                     index++;
                 }
                 tagName = "inhabitant" + ParseUser.getCurrentUser().getNumber("liverNum").toString();
                 newbill.put(tagName, -sum);
+                //System.out.println("Assigned " + tagName + " with: " + -sum);
 
 
         }
@@ -203,9 +207,16 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                     public void done(List<ParseUser> users, ParseException e) {
                         String[] names = new String[numList.length];
 
+                        Collections.sort(users, new Comparator<ParseUser>() {
+                            public int compare(ParseUser u1, ParseUser u2) {
+                                return u1.getInt("liverNum") - u2.getInt("liverNum");
+                            }
+                        });
+
                         for (int i = 0; i < names.length; i++) {
                             names[i] = users.get(i).getString("name");
                         }
+                        
                         listView.setItemsCanFocus(true);
                         //ArrayAdapter<String> aa=new ArrayAdapter<String>(AddBillEvenlyActivity.this, android.R.layout.simple_spinner_item,
                         //        names);
