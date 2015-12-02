@@ -1,3 +1,9 @@
+/*
+Given: I am logged in
+When: I add a new bill
+Then: The bill is added to the data base
+ */
+
 package net.brooke.apppartment2;
 
 import android.content.Context;
@@ -149,7 +155,8 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 newbill.saveInBackground();
-
+                //test
+                testBill();
                 Intent intent = new Intent(AddBillEvenlyActivity.this, Dashboard_w_NavDrawer.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), "Successfully added bill.", Toast.LENGTH_SHORT).show();
@@ -216,7 +223,7 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                         for (int i = 0; i < names.length; i++) {
                             names[i] = users.get(i).getString("name");
                         }
-                        
+
                         listView.setItemsCanFocus(true);
                         //ArrayAdapter<String> aa=new ArrayAdapter<String>(AddBillEvenlyActivity.this, android.R.layout.simple_spinner_item,
                         //        names);
@@ -243,4 +250,33 @@ public class AddBillEvenlyActivity extends AppCompatActivity {
                     }
                 });
             }
+
+    /*
+    You should already be logged in at this point.
+    Given: I am logged in
+     */
+        public void testBill() {
+            /*
+            When: I add a new bill
+             */
+            EditText title = (EditText) findViewById(R.id.editText7);
+            final String titleStr = title.getText().toString();
+            ParseQuery billQuery = new ParseQuery("Bills");
+            billQuery.whereEqualTo("BillName", titleStr);
+            /*
+            Then: The bill is added to the data base
+             */
+            billQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject object, ParseException e) {
+                    if(e == null) {
+                        Log.d("billExist", "The bill exists.");
+                    } else {
+                        Log.d("billExist", "The bill does not exist.");
+                    }
+                }
+            });
+
         }
+
+}
