@@ -1,8 +1,15 @@
+/*
+Given: I am logged in and know my roomate's apartment code
+When: I enter in my roomate's apartment code
+Then: I am added to my roomate's apartment
+ */
+
 package net.brooke.apppartment2;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -34,7 +41,6 @@ public class EnterApartmentActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 ParseUser user = ParseUser.getCurrentUser();
                 String id = newApartment.getObjectId();
-                System.out.println("Successfully created a new apt!, your apt # is : " + id);
                 newApartment.put("houseID", id);
                 newApartment.add("inhabitants", user.getUsername());
                 user.put("household", id);
@@ -99,8 +105,8 @@ public class EnterApartmentActivity extends AppCompatActivity {
                     apartment.put("availableTags", availableTags);
                     user.saveInBackground();
                     apartment.saveInBackground();
-
-                    System.out.println("Added to apartment!");
+                    //test
+                    addRoomateTest();
 
                     Intent intent = new Intent(EnterApartmentActivity.this, Dashboard_w_NavDrawer.class);
                     startActivity(intent);
@@ -109,5 +115,29 @@ public class EnterApartmentActivity extends AppCompatActivity {
         });
 
     }
+
+
+    /*
+    You should already be logged in at this point.
+    Given: I am logged in and know my roomate's apartment code
+     */
+    public void addRoomateTest() {
+        /*
+        When: I enter in my roomate's apartment code
+         */
+        ParseUser user = ParseUser.getCurrentUser();
+        final String aptCode = user.getString("household");
+        EditText codeField = (EditText) findViewById(R.id.editText4);
+        final String code = codeField.getText().toString();
+        /*
+        Then: I am added to my roomate's apartment
+         */
+        if(aptCode.equals(code)) {
+            Log.d("match", "Apartment codes match.");
+        } else {
+            Log.d("notMatch", "Apartment codes does not match.");
+        }
+    }
+
 }
 
