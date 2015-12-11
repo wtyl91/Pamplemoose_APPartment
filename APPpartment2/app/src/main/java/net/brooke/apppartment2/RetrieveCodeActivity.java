@@ -6,8 +6,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
@@ -40,6 +42,34 @@ public class RetrieveCodeActivity extends AppCompatActivity {
         ParseUser user = ParseUser.getCurrentUser();
         String household = user.getString("household");
         tvCode.setText(household);
+
+        addRoommateTest();
+    }
+
+    /*
+    You should already be logged in at this point.
+    Given: I am logged in and know my roommate's apartment code
+     */
+    public void addRoommateTest() {
+        /*
+        When: I enter in my roommate's apartment code
+         */
+        ParseUser user = ParseUser.getCurrentUser();
+        final String aptCode = user.getString("household");
+        TextView codeField = (TextView) findViewById(R.id.textView17);
+        final String code = codeField.getText().toString();
+        /*
+        Then: I am added to my roommate's apartment
+         */
+        if(aptCode.equals(code)) {
+            Log.d("match", "Apartment codes match.");
+            System.out.println("text view = " + code);
+            System.out.println("database value = " + aptCode);
+        } else {
+            Log.d("notMatch", "Apartment codes does not match.");
+            System.out.println("text view = " + code);
+            System.out.println("database value = "+ aptCode);
+        }
     }
 
 }
